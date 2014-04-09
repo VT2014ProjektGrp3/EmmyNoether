@@ -16,6 +16,7 @@
           <option id="common.services.ioport" value="Add" config="" content-id="Atmel.ASF" />
           <option id="common.utils.stdio.stdio_serial" value="Add" config="" content-id="Atmel.ASF" />
           <option id="sam.drivers.pio" value="Add" config="" content-id="Atmel.ASF" />
+          <option id="sam.drivers.pwm" value="Add" config="" content-id="Atmel.ASF" />
           <option id="sam.drivers.uart" value="Add" config="" content-id="Atmel.ASF" />
           <option id="thirdparty.os.freertos.version" value="Add" config="7.3.0" content-id="Atmel.ASF" />
           <option id="common.applications.user_application" value="Add" config="" content-id="Atmel.ASF" />
@@ -199,6 +200,8 @@
           <file path="src/ASF/thirdparty/freertos/freertos-7.3.0/source/portable/gcc/arm_cm3/portmacro.h" framework="" version="3.11.0" source="thirdparty\freertos\freertos-7.3.0\source\portable\gcc\arm_cm3\portmacro.h" changed="False" content-id="Atmel.ASF" />
           <file path="src/ASF/thirdparty/freertos/freertos-7.3.0/source/include/FreeRTOS_CLI.h" framework="" version="3.11.0" source="thirdparty\freertos\freertos-7.3.0\source\include\FreeRTOS_CLI.h" changed="False" content-id="Atmel.ASF" />
           <file path="src/ASF/thirdparty/freertos/freertos-7.3.0/source/include/croutine.h" framework="" version="3.11.0" source="thirdparty\freertos\freertos-7.3.0\source\include\croutine.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam/drivers/pwm/pwm.c" framework="" version="3.11.0" source="sam\drivers\pwm\pwm.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam/drivers/pwm/pwm.h" framework="" version="3.11.0" source="sam\drivers\pwm\pwm.h" changed="False" content-id="Atmel.ASF" />
         </files>
         <documentation help="http://asf.atmel.com/docs/3.11.0/common.applications.user_application.arduino_due_x/html/index.html" />
         <offline-documentation help="" />
@@ -276,6 +279,7 @@
       <Value>../src/ASF/common/utils/stdio/stdio_serial</Value>
       <Value>../src/ASF/thirdparty/freertos/freertos-7.3.0/source/portable/gcc/arm_cm3</Value>
       <Value>../src/ASF/thirdparty/freertos/freertos-7.3.0/source/include</Value>
+      <Value>../src/ASF/sam/drivers/pwm</Value>
     </ListValues>
   </armgcc.compiler.directories.IncludePaths>
   <armgcc.compiler.optimization.level>Optimize for size (-Os)</armgcc.compiler.optimization.level>
@@ -327,6 +331,7 @@
       <Value>../src/ASF/common/utils/stdio/stdio_serial</Value>
       <Value>../src/ASF/thirdparty/freertos/freertos-7.3.0/source/portable/gcc/arm_cm3</Value>
       <Value>../src/ASF/thirdparty/freertos/freertos-7.3.0/source/include</Value>
+      <Value>../src/ASF/sam/drivers/pwm</Value>
     </ListValues>
   </armgcc.assembler.general.IncludePaths>
   <armgcc.preprocessingassembler.general.AssemblerFlags>-DARM_MATH_CM3=true -DBOARD=ARDUINO_DUE_X -D__SAM3X8E__ -Dprintf=iprintf</armgcc.preprocessingassembler.general.AssemblerFlags>
@@ -361,6 +366,7 @@
       <Value>../src/ASF/common/utils/stdio/stdio_serial</Value>
       <Value>../src/ASF/thirdparty/freertos/freertos-7.3.0/source/portable/gcc/arm_cm3</Value>
       <Value>../src/ASF/thirdparty/freertos/freertos-7.3.0/source/include</Value>
+      <Value>../src/ASF/sam/drivers/pwm</Value>
     </ListValues>
   </armgcc.preprocessingassembler.general.IncludePaths>
 </ArmGcc>
@@ -417,6 +423,7 @@
       <Value>../src/ASF/common/utils/stdio/stdio_serial</Value>
       <Value>../src/ASF/thirdparty/freertos/freertos-7.3.0/source/portable/gcc/arm_cm3</Value>
       <Value>../src/ASF/thirdparty/freertos/freertos-7.3.0/source/include</Value>
+      <Value>../src/ASF/sam/drivers/pwm</Value>
     </ListValues>
   </armgcc.compiler.directories.IncludePaths>
   <armgcc.compiler.optimization.level>Optimize (-O1)</armgcc.compiler.optimization.level>
@@ -469,6 +476,7 @@
       <Value>../src/ASF/common/utils/stdio/stdio_serial</Value>
       <Value>../src/ASF/thirdparty/freertos/freertos-7.3.0/source/portable/gcc/arm_cm3</Value>
       <Value>../src/ASF/thirdparty/freertos/freertos-7.3.0/source/include</Value>
+      <Value>../src/ASF/sam/drivers/pwm</Value>
     </ListValues>
   </armgcc.assembler.general.IncludePaths>
   <armgcc.assembler.debugging.DebugLevel>Default (-g)</armgcc.assembler.debugging.DebugLevel>
@@ -504,6 +512,7 @@
       <Value>../src/ASF/common/utils/stdio/stdio_serial</Value>
       <Value>../src/ASF/thirdparty/freertos/freertos-7.3.0/source/portable/gcc/arm_cm3</Value>
       <Value>../src/ASF/thirdparty/freertos/freertos-7.3.0/source/include</Value>
+      <Value>../src/ASF/sam/drivers/pwm</Value>
     </ListValues>
   </armgcc.preprocessingassembler.general.IncludePaths>
   <armgcc.preprocessingassembler.debugging.DebugLevel>Default (-Wa,-g)</armgcc.preprocessingassembler.debugging.DebugLevel>
@@ -515,6 +524,12 @@
     <GenerateEepFile>True</GenerateEepFile>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="src\ASF\sam\drivers\pwm\pwm.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <None Include="src\ASF\sam\drivers\pwm\pwm.h">
+      <SubType>compile</SubType>
+    </None>
     <Compile Include="src\ASF\thirdparty\freertos\freertos-7.3.0\source\FreeRTOS_CLI.c">
       <SubType>compile</SubType>
     </Compile>
@@ -588,6 +603,12 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\sema_signal.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\setup_PWM.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\setup_PWM.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\task1.c">
@@ -1077,6 +1098,7 @@
     <Folder Include="src\ASF\sam\drivers\" />
     <Folder Include="src\ASF\sam\drivers\pio\" />
     <Folder Include="src\ASF\sam\drivers\pmc\" />
+    <Folder Include="src\ASF\sam\drivers\pwm\" />
     <Folder Include="src\ASF\sam\drivers\uart\" />
     <Folder Include="src\ASF\sam\drivers\usart\" />
     <Folder Include="src\ASF\sam\utils\" />

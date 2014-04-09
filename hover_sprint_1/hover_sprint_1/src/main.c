@@ -28,7 +28,7 @@
  */
 #include <asf.h>
 #include "task1.h"
-#include "task2.h"
+#include "setup_PWM.h"
 #include "sema_signal.h"
 
 xSemaphoreHandle semafor_signal = 0;
@@ -54,6 +54,8 @@ int main(void)
 	sysclk_init();
 	board_init();
 	configure_console();
+	initialize_PWM();
+	
 	/* Print demo information */
 	printf("-- Freertos Exempel - Semaforer --\n\r");
 	printf("-- %s\n\r", BOARD_NAME);
@@ -61,17 +63,21 @@ int main(void)
 	/* a semaphore cannot be used wihtout calling vSemaphoreCreateBinary() */
 	vSemaphoreCreateBinary(semafor_signal);
 	/* Create the task giving the semaphore */
-	if (xTaskCreate(task1, (const signed char * const) "Task1", 1024, NULL, 1,
-	NULL) != pdPASS)
-	{
-		printf("Misslyckades med att skapa Boss tasken\r\n");
-	}
+// 	if (xTaskCreate(task1, (const signed char * const) "Task1", 1024, NULL, 1,
+// 	NULL) != pdPASS)
+// 	{
+// 		printf("Misslyckades med att skapa Boss tasken\r\n");
+// 	}
+
+
 	/* Create a task taking the semaphore and doing it’s stuff */
-	if (xTaskCreate(task2, (const signed char * const) "Task2", 1024, NULL, 2,
+/*	if (xTaskCreate(task2, (const signed char * const) "Task2", 1024, NULL, 2,
 	NULL) != pdPASS)
 	{
 		printf("Misslyckades med att skapa Employee tasken\r\n");
-	}
+	}*/
+
+
 	/* Start the scheduler */
-	vTaskStartScheduler();
+	//vTaskStartScheduler();
 }

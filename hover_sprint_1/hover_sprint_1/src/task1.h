@@ -10,7 +10,7 @@
 #define TASK1_H_
 
 
-void task1(void);
+void task1(void *pointer);
 
 
 #endif /* TASK1_H_ */
