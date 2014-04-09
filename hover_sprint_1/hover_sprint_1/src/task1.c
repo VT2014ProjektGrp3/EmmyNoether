@@ -27,6 +27,6 @@ void task1(void *pointer)
 // 		printf("Task1 slutar ge signal\n");
 // 		printf("\n");
 // 		/* Every other second task1 signals to task2 */
-// 		vTaskDelay(2000);
+		/*vTaskDelay(2000);*/
 	}
 }

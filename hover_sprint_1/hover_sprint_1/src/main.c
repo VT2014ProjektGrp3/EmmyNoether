@@ -63,11 +63,11 @@ int main(void)
 	/* a semaphore cannot be used wihtout calling vSemaphoreCreateBinary() */
 	vSemaphoreCreateBinary(semafor_signal);
 	/* Create the task giving the semaphore */
-// 	if (xTaskCreate(task1, (const signed char * const) "Task1", 1024, NULL, 1,
-// 	NULL) != pdPASS)
-// 	{
-// 		printf("Misslyckades med att skapa Boss tasken\r\n");
-// 	}
+	if (xTaskCreate(task1, (const signed char * const) "Task1", 1024, NULL, 1,
+	NULL) != pdPASS)
+	{
+		printf("Misslyckades med att skapa Boss tasken\r\n");
+	}
 
 
 	/* Create a task taking the semaphore and doing it’s stuff */

@@ -38,8 +38,11 @@ void initialize_PWM(void)
 	pwm_init(PWM, &clock_setting);
 	pwm_channel_instance.ul_prescaler = PWM_CMR_CPRE_CLKB;
 	pwm_channel_instance.ul_period = 100;
-	pwm_channel_instance.ul_duty = 50;
+	pwm_channel_instance.ul_duty = 30;
 	pwm_channel_instance.channel = PWM_CHANNEL_0;
+	pwm_channel_instance.polarity = PWM_HIGH;
+	pwm_channel_instance.alignment = PWM_ALIGN_CENTER;
+	
 	pwm_channel_init(PWM, &pwm_channel_instance);
 	
 	pwm_channel_enable(PWM, PWM_CHANNEL_0); 
@@ -48,10 +51,10 @@ void initialize_PWM(void)
 // configure pins using PIO
 void set_pin(void)
 {
-	// set portC pin 3 as output (D35)
 	pmc_enable_periph_clk(ID_PIOC);
 	// set as output, default LOW
-	pio_set_output(PIOC, PIO_PC3, HIGH, DISABLE, ENABLE);
+ 	pio_set_output(PIOC, PIO_PC3, LOW, DISABLE, ENABLE);
+ 	pio_set_peripheral(PIOC, PIO_PERIPH_B, PIO_PC3);
 }
 
 // void setPWMpin(uint32_t pin) {
