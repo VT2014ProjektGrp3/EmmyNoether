@@ -48,6 +48,8 @@ static void configure_console(void)
 	*/
 	#endif
 }
+
+
 int main(void)
 {
 	/* Initiera SAM systemet */
@@ -68,6 +70,8 @@ int main(void)
 	{
 		printf("Misslyckades med att skapa Boss tasken\r\n");
 	}
+	
+	//pwm_channel_enable(PWM, PWM_CHANNEL_0);
 
 
 	/* Create a task taking the semaphore and doing it’s stuff */

@@ -22,10 +22,10 @@ void initialize_PWM(void)
 	//3.Disable PWM channel 0:
 	pwm_channel_disable(PWM, PWM_CHANNEL_0);
 		
-	//4.Setup clock for PWM module (only clock A, not B):
+	//4.Setup clock for PWM module (only clock B, not A):
 	pwm_clock_t clock_setting = {
 		.ul_clka = 0,
-		.ul_clkb = 1000 * 100,
+		.ul_clkb = 25000 * 100, // 25kHz for the fans
 		.ul_mck = 84000000
 	};
 		
@@ -41,7 +41,7 @@ void initialize_PWM(void)
 	pwm_channel_instance.ul_duty = 30;
 	pwm_channel_instance.channel = PWM_CHANNEL_0;
 	pwm_channel_instance.polarity = PWM_HIGH;
-	pwm_channel_instance.alignment = PWM_ALIGN_CENTER;
+	pwm_channel_instance.alignment = PWM_ALIGN_CENTER; //???
 	
 	pwm_channel_init(PWM, &pwm_channel_instance);
 	
@@ -53,8 +53,9 @@ void set_pin(void)
 {
 	pmc_enable_periph_clk(ID_PIOC);
 	// set as output, default LOW
- 	pio_set_output(PIOC, PIO_PC3, LOW, DISABLE, ENABLE);
+ 	//pio_set_output(PIOC, PIO_PC3, LOW, DISABLE, ENABLE);
  	pio_set_peripheral(PIOC, PIO_PERIPH_B, PIO_PC3);
+	pio_set_peripheral(PIOC, PIO_PERIPH_B, PIO_PC2);
 }
 
 // void setPWMpin(uint32_t pin) {
