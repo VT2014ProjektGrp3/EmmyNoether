@@ -17,6 +17,7 @@ int main(void)
 {
     /* Initialize the SAM system */
    // SystemInit();
+    sysclk_init();
 	board_init();
 
     while (1) 

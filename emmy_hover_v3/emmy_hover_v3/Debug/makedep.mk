@@ -2,13 +2,47 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
-cmsis\src\startup_sam3xa.c
-
-cmsis\src\system_sam3xa.c
-
 emmy_hover_v3.cpp
 
+src\ASF\sam\drivers\dacc\dacc.c
+
+src\ASF\sam\drivers\pwm\pwm.c
+
+src\ASF\thirdparty\freertos\freertos-7.3.0\source\FreeRTOS_CLI.c
+
+src\ASF\thirdparty\freertos\freertos-7.3.0\source\list.c
+
+src\ASF\thirdparty\freertos\freertos-7.3.0\source\portable\gcc\arm_cm3\port.c
+
+src\ASF\thirdparty\freertos\freertos-7.3.0\source\portable\memmang\heap_4.c
+
+src\ASF\thirdparty\freertos\freertos-7.3.0\source\queue.c
+
+src\ASF\thirdparty\freertos\freertos-7.3.0\source\tasks.c
+
+src\ASF\thirdparty\freertos\freertos-7.3.0\source\timers.c
+
+src\ASF\common\services\clock\sam3x\sysclk.c
+
+src\ASF\common\services\serial\usart_serial.c
+
+src\ASF\common\utils\stdio\read.c
+
+src\ASF\common\utils\stdio\write.c
+
 src\ASF\sam\boards\arduino_due_x\init.c
+
+src\ASF\sam\drivers\pio\pio.c
+
+src\ASF\sam\drivers\pio\pio_handler.c
+
+src\ASF\sam\drivers\pmc\pmc.c
+
+src\ASF\sam\drivers\pmc\sleep.c
+
+src\ASF\sam\drivers\uart\uart.c
+
+src\ASF\sam\drivers\usart\usart.c
 
 src\ASF\sam\utils\cmsis\sam3x\source\templates\exceptions.c
 

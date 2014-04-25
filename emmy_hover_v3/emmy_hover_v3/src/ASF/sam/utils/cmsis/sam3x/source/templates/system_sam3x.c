@@ -45,6 +45,8 @@
 #include "system_sam3x.h"
 #include "sam3xa.h"
 
+#define CHIP_FREQ_FWS_4                 (90000000UL) /**< \brief Maximum operating frequency when FWS is 4 */
+
 /* @cond 0 */
 /**INDENT-OFF**/
 #ifdef __cplusplus
