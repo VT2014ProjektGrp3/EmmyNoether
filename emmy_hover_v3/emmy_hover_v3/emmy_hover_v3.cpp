@@ -5,7 +5,8 @@
  *  Author: Alf
  */ 
 
-#include "sam.h"
+//#include "sam.h"
+#include <asf.h>
 
 /**
  * \brief Application entry point.
@@ -15,7 +16,8 @@
 int main(void)
 {
     /* Initialize the SAM system */
-    SystemInit();
+   // SystemInit();
+	board_init();
 
     while (1) 
     {
